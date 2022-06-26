@@ -1,9 +1,10 @@
-import Header from 'components/Header/Header';
 import React from 'react';
 
 const Home = () => {
   return (
-    <Header></Header>
+    <div style={{width: '100%', height: '100vh', backgroundColor: 'teal'}}className='Home'>
+
+    </div>
   );
 };
 

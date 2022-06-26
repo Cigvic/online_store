@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2690cc85.css",
+    "main.js": "/static/js/main.c1174849.js",
+    "static/media/Poppins-Regular.ttf": "/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/Poppins-SemiBold.ttf": "/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
+    "static/media/profile__avatar.jpg": "/static/media/profile__avatar.74c3c0fb802dcfa83abb.jpg",
+    "static/media/discount.svg": "/static/media/discount.806357376221ac4571f71fa706cbfae8.svg",
+    "static/media/basket.svg": "/static/media/basket.2cefded1fc0502e4a666.svg",
+    "static/media/search.svg": "/static/media/search.d430dcfc65ba77857390.svg",
+    "static/media/account.svg": "/static/media/account.18581cdc9d4b400449fec81fdf61c91c.svg",
+    "static/media/support.svg": "/static/media/support.9ca975f8a649ac3098c249a50dfe98da.svg",
+    "index.html": "/index.html",
+    "static/media/cross.svg": "/static/media/cross.7ce7168c87768a0e4fe0.svg",
+    "main.2690cc85.css.map": "/static/css/main.2690cc85.css.map",
+    "main.c1174849.js.map": "/static/js/main.c1174849.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2690cc85.css",
+    "static/js/main.c1174849.js"
+  ]
+}

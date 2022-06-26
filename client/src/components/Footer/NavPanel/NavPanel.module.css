@@ -1,0 +1,10 @@
+.container {
+  margin-top: 45px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
