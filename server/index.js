@@ -1,9 +1,12 @@
 require('dotenv').config()
 const  express = require('express')
 const sequelize = require('./dbConnect')
-const PORT = process.env.PORT
 const database = require('./database/database')
+const router = require('./routes/index')
+
+const PORT = process.env.PORT
 const app = express()
+app.use('/api',router)
 
 const start = async () => {
     try {
