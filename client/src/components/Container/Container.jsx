@@ -1,21 +1,12 @@
 import React from 'react';
 import './Container.css'
 
-const Container = (props) => {
-  if (props.isFlexNeeded === 'true') {
+const Container = ({children, className, ...props}) => {
     return (
-      <div className='Container Flex-container'>
-        {props.children}
+      <div className={className}>
+        {children}
       </div>
     );
-  } else {
-    return (
-      <div className='Container'>
-        {props.children}
-      </div>
-    );
-  }
-  
 };
 
 export default Container;

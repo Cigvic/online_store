@@ -1,0 +1,32 @@
+.container {
+  margin-right: 78px;
+}
+
+.container:last-of-type {
+  margin-right: 0;
+}
+
+.title {
+  margin: 0 0 18px 0;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  color: rgba(255, 255, 255, 0.5);
+}
+.item {
+  margin-bottom: 4px;
+}
+.item:last-of-type {
+  margin-bottom: 0;
+}
+.link {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 140%;
+  color: #fff;
+  text-decoration: none;
+}

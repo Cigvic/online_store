@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+
+.icon {
+  margin-right: 10px;
+  transition: opacity .4s;
+}
+.icon:last-of-type {
+  margin-right: 0;
+}
+
+.social {
+  opacity: .5;
+}
+.social:hover {
+  opacity: .2;
+}
+.payment:hover {
+  opacity: .5;
+}
+.copyright {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 132.5%;
+  text-align: right;
+  color: #fff;
+  opacity: 0.6;
+}

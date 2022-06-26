@@ -1,0 +1,13 @@
+.Button {
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #fff;
+  background: #0156FF;
+  border-radius: 50px;
+  border: none;
+  padding: 15px 36px;
+}
