@@ -13,13 +13,13 @@ const LoginForm = () => {
       <label className={classes.label} htmlFor="email">
         Email <span className={classes.required}> * </span>
       </label>
-      <Input className={'Input Input__light-theme' + ` ${classes.input}`} type='email' placeholder='Your email'/>
+      <Input className={`Input Input__light-theme ${classes.input}`} type='email' placeholder='Your email'/>
       <label className={classes.label} htmlFor="password">
         Password <span className={classes.required}> * </span>
       </label>
-      <Input className={'Input Input__light-theme' + ` ${classes.input}`} type='password' placeholder='Your password'/>
+      <Input className={`Input Input__light-theme ${classes.input}`} type='password' placeholder='Your password'/>
       <Container className={`flex align-center ${classes.btns}`}>
-        <Button>Sign In</Button>
+        <Button type='submit'>Sign In</Button>
         <Link to='/' className={classes.link}>Forgot Your Password?</Link>
       </Container>
     </form>

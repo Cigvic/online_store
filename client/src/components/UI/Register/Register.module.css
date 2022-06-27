@@ -1,0 +1,30 @@
+.wrapper {
+  margin-left: 34px;
+  box-sizing: border-box;
+  padding: 37px 60px 40px;
+  width: 564px;
+  height: 415px;
+  background: #F5F7FF;
+  
+}
+.text {
+  margin-top: 8px;
+  margin-bottom: 6px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  color: #000;
+}
+
+.ul {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  color: #000;
+  margin: 0 0 35px 0;
+  padding: 0 0 0 13px;
+}
