@@ -7,7 +7,7 @@ const Blackbar = (props) => {
   return (
     
     <div className='Blackbar'>
-      <Container className='Container Flex-container'>
+      <Container className='default flex justify-space-between align-center'>
         <div className='Blackbar__worktime'>
           <span className='Blackbar__text'>
             <span className='Blackbar__grey-text'>Mon-Thu:</span> 9:00 AM - 5:30 PM
