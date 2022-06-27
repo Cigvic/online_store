@@ -4,7 +4,7 @@ const deviceController = require('./deviceController')
 
 router.post('/', deviceController.create)
 router.get('/', deviceController.getAll)
-router.delete('/', deviceController.delete)
-router.post('/', deviceController.post)
+router.delete('/', deviceController.deleteOne)
+//router.post('/', deviceController.post)
 
 module.exports = router
