@@ -27,6 +27,7 @@
 
 .Menu__item {
   margin-right: 10px;
+  text-decoration: none;
 }
 .Menu__item:last-of-type {
   margin-right: 0;
@@ -53,6 +54,7 @@
 }
 
 .Menu__btn {
+  text-decoration: none;
   cursor: pointer;
   padding: 8px 26px;
   box-sizing: border-box;

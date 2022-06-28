@@ -4,6 +4,7 @@ import Header from 'components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Login from './pages/Login';
+import Rules from './pages/Rules';
 
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
               element={<Login/>}
             />
             <Route
-              path='/home'
-              element={<Home/>}
+              path='/terms-and-conditions'
+              element={<Rules/>}
             />
             <Route
               index

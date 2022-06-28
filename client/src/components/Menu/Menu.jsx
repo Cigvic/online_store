@@ -18,9 +18,9 @@ const Menu = ({items}, ...props) => {
             } 
           )
         }
-        <li className='Menu__item' key="lul">
+        <Link to='/terms-and-conditions' className='Menu__item' key="lul">
           <button className='Menu__btn'>Our Deals</button>
-        </li>
+        </Link>
       </menu>
       
     )

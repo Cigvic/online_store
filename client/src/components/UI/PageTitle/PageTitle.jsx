@@ -2,14 +2,14 @@ import React from 'react';
 import classes from './PageTitle.module.css';
 const PageTitle = ({children, className = '', ...props}) => {
 
-  (className) ? className = classes.h2 + className : className = classes.h2;
+  (className) ? className = classes.h1 + className : className = classes.h1;
 
   return (
-    <h2 className={className}>
+    <h1 className={className}>
       {
         children
       }
-    </h2>
+    </h1>
   );
 };
 
