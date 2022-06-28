@@ -8,7 +8,7 @@ const Container = ({children, className, ...props}) => {
       (classes[classItem]) ? classArr.push(classes[classItem]) : mixClasses.push(classItem);
     });
 
-      (mixClasses.length) ? classArr.push(...mixClasses) : console.log();
+    if (mixClasses.length) classArr.push(...mixClasses);
     return (
       <div className={classArr.join(' ')}>
         {children}
