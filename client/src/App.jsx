@@ -4,6 +4,9 @@ import Header from 'components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Login from './pages/Login';
+import Rules from './pages/Rules';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 
 
 function App() {
@@ -15,9 +18,17 @@ function App() {
               path="/login" 
               element={<Login/>}
             />
+            <Route 
+              path="/contact-us" 
+              element={<ContactUs/>}
+            />
+            <Route 
+              path="/about-us" 
+              element={<AboutUs/>}
+            />
             <Route
-              path='/home'
-              element={<Home/>}
+              path='/terms-and-conditions'
+              element={<Rules/>}
             />
             <Route
               index
