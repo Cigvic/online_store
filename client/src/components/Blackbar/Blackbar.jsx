@@ -2,6 +2,7 @@ import React from 'react';
 import './Blackbar.css'
 import Container from './../Container/Container';
 import ShopInfo from './../ShopInfo/ShopInfo';
+import { Link } from 'react-router-dom';
 
 const Blackbar = (props) => {
   return (
@@ -17,7 +18,7 @@ const Blackbar = (props) => {
               <path d="M10 5.76929L8 7.76929L6 5.76929" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
             </svg>
         </div>
-        <span className='Blackbar__grey-text'>Visit our showroom in 1234 Street Adress City Address, 1234  <a className='Blackbar__link' href="https://fonts.google.com/icons">Contact Us</a></span>
+        <span className='Blackbar__grey-text'>Visit our showroom in 1234 Street Adress City Address, 1234  <Link className='Blackbar__link' to="/contact-us">Contact Us</Link></span>
         <span className='Blackbar__text'>Call Us: (00) 1234 5678</span>
       </Container>
     </div>
