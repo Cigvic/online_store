@@ -2,17 +2,17 @@ const {brand} = require("../../database/database");
 const apiError = require("../../error/apiError")
 
 class brandController {
-    async create(request, result){
+    async create(request, response){
         const {name} = request.body
         const brands = await brand.create({name})
-        return result.json(brands)
+        return response.json(brands)
     }
 
-    async getAll (request, result){
+    async getAll (request, response){
         const brands = await brand.findAll()
-        return result.json(brands)
+        return response.json(brands)
     }
-    async deleteOne (request, result, next) {
+    async deleteOne (request, response, next) {
         const {name} = request.body
         const brands = await brand.destroy({ where: {
                 name: name
@@ -21,7 +21,7 @@ class brandController {
         if (!brands) {
             return next(apiError.badRequest(0))
         }
-        return result.json({
+        return response.json({
             "message": 1
         })
     }

@@ -4,24 +4,24 @@ const path = require('path')
 const apiError = require('../../error/apiError')
 
 class deviceController {
-    async create(request, result, next){
+    async create(request, response, next){
         try {
             const {name, price, description, typeId, brandId} = request.body
             const {img} = request.files
             let fileName = uuid.v4() + ".jpg"
             img.mv(path.resolve(__dirname,'..','..','images',fileName))
             const devices = await device.create({name, price, description, typeId, brandId, img: fileName})
-            return result.json(devices)
+            return response.json(devices)
         } catch (e) {
             next(apiError.badRequest(e.message))
         }
 
     }
 
-    async getAll (request, result){
+    async getAll (request, response){
 
     }
-    async deleteOne (request, result) {
+    async deleteOne (request, response) {
 
     }
 
