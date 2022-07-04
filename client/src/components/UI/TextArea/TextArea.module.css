@@ -1,0 +1,24 @@
+.textarea {
+  height: 236px;
+  min-width: 350px;
+  box-sizing: border-box;
+  padding: 17px;
+  max-width: 925px;
+  width: 100%;
+  background: #FFF;
+  border: 2px solid #A2A6B0;
+  border-radius: 4px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000;
+}
+.textarea::placeholder {
+  color: #A2A6B0;
+}
+.textarea:focus {
+  border: 2px solid #0156FF;
+  outline: none;
+}

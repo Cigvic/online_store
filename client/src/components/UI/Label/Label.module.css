@@ -1,0 +1,14 @@
+.label {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 210%;
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+.required {
+  margin-left: 2px;
+  color: red;
+}
