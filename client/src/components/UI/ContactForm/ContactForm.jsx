@@ -4,6 +4,7 @@ import Input from './../Input/Input';
 import Label from '../Label/Label';
 import Container from 'components/Container/Container';
 import TextArea from './../TextArea/TextArea';
+import Button from '../Button/Button';
 
 const ContactForm = () => {
   return (
@@ -25,7 +26,8 @@ const ContactForm = () => {
         <Label isRequired='1' htmlFor='message'>
           What’s on your mind?
         </Label>
-        <TextArea id='message' placeholder='Jot us a note and we’ll get back to you as quickly as possible'/>
+        <TextArea className={classes.textarea} id='message' placeholder='Jot us a note and we’ll get back to you as quickly as possible'/>
+        <Button>Submit</Button>
       </Container>
     </form>
   );

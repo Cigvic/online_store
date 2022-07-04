@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './TextArea.module.css';
-const TextArea = ({id, placeholder, ...props}) => {
+const TextArea = ({id, placeholder, className, ...props}) => {
   return (
-    <textarea className={classes.textarea} id={id} placeholder={placeholder}>
+    <textarea className={`${className} ${classes.textarea}`} id={id} placeholder={placeholder}>
       
     </textarea>
   );

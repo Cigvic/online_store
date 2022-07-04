@@ -11,3 +11,6 @@
 .container {
   max-width: 925px;
 }
+.textarea {
+  margin-bottom: 16px;
+}
