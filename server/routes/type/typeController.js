@@ -21,6 +21,7 @@ class typeController {
         const brands = await type.findAll()
         return response.json(brands)
     }
+
     async deleteOne (request, response) {
         const {name} = request.body
         const types = await type.destroy({ where: {
