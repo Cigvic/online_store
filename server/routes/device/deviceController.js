@@ -43,16 +43,17 @@ class deviceController {
 
     }
 
-    async getOne (request, response) {
-        const {id} = request.params
-        const deviceOne = await device.findOne({
-        where:{id}
-        })
-        if (!deviceOne){
-           return response.status(404).send({message:'Not found'})
+    async getOne (request, response, next) {
+        try {
+            const {id} = request.params
+            const deviceOne = await device.findOne({
+                where:{id}
+            })
+            return response.json(deviceOne)
+        } catch (e) {
+            next(apiError.badRequest(e.message))
         }
 
-        return response.json(deviceOne)
     }
 
     async new (request, response) {
