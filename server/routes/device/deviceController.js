@@ -33,6 +33,11 @@ class deviceController {
         return response.json(rating)
     }
 
+    // getRating
+    async getRating (request, response) {
+        const rating = await deviceService.getRating(request.body)
+        return response.json(rating)
+    }
 }
 
 module.exports = new deviceController()

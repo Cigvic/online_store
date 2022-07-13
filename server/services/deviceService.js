@@ -76,13 +76,16 @@ class deviceService {
         return rating
     }
 
-   /* async getRating (request) {
-        const {id} = request;
-        const rating = await device.findAll({
-        attributes: [[sequelize.fn('AVG', sequelize.col('rate'))],
-        where: {id}
+    async getRating (request) {
+        const {deviceId} = request;
+        const rating = await ratingDevice.findOne({
+        where: {deviceId},
+        attributes: [[sequelize.fn('AVG', sequelize.col('rate')), 'avgRating']]
         })
-    }*/
+        let avgRating = +rating.getDataValue('avgRating')
+        avgRating = avgRating.toFixed(2)
+        return avgRating
+    }
 
 
 }
