@@ -1,0 +1,33 @@
+.container {
+  background-color: #F5F7FF;
+  height: 60px;
+  margin-bottom: 14px;
+}
+.line {
+  margin: 0 14px 0 11px;
+}
+.paragraph {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120.5%;
+  color: #272560;
+}
+.span {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120.5%;
+  color: #272560;
+}
+.link {
+  color: #272560;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120.5%;
+  text-decoration-line: underline;
+  transition: opacity .4s;
+}
+.link:hover {
+  opacity: .8
+}
