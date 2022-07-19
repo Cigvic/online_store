@@ -1,0 +1,33 @@
+.slide1 {
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 50px;
+  min-height: 346px;
+  box-sizing: border-box;
+  background-color: aliceblue;
+}
+.slide2 {
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 50px;
+  min-height: 346px;
+  box-sizing: border-box;
+  background-color: red;
+}
+.slide3 {
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 50px;
+  min-height: 346px;
+  box-sizing: border-box;
+  background-color: blueviolet;
+}

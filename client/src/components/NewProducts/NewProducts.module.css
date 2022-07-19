@@ -1,0 +1,29 @@
+.container {
+  margin-bottom: 18px;
+}
+.textblock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  color: #000;
+}
+.link {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 115%;
+  text-decoration-line: underline;
+  color: #0156FF;
+  transition: opacity .4s;
+}
+.link:hover {
+  opacity: .8;
+}

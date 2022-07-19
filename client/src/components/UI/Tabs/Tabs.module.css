@@ -1,0 +1,34 @@
+.nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tabLink {
+  cursor: pointer;
+  margin-right: 26px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #838383;
+  transition: border .2s, color .2s, opacity .2s;
+}
+.tabLink:last-of-type {
+  margin-right: 0;
+}
+.tabLinkActive {
+  pointer-events: none;
+  color: #000;
+  border-bottom: 2px solid #0156FF;
+}
+.tabLink:hover {
+  opacity: .8;
+}
