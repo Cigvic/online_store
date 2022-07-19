@@ -1,10 +1,16 @@
 const sequelize = require('../dbConnect')
 const {DataTypes} = require('sequelize')
+const queryInterface = sequelize.getQueryInterface();
+
+
 
 const user = sequelize.define('user', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     email: {type: DataTypes.STRING, unique: true,},
     password: {type: DataTypes.STRING},
+    firstName: {type: DataTypes.STRING},
+    lastName: {type: DataTypes.STRING},
+    phoneNumber: {type: DataTypes.STRING},
     role: {type: DataTypes.INTEGER, defaultValue: 1},
 })
 

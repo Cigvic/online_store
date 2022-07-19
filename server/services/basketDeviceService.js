@@ -1,7 +1,5 @@
 const {basketDevice, device} = require("../database/database");
 const apiError = require("../error/apiError");
-const sequelize = require("sequelize")
-const {request} = require("express");
 class basketDeviceService {
 
     async getAll (request){

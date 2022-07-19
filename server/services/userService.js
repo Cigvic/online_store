@@ -13,7 +13,7 @@ const createJwt = (id, email, role) => {
 
 class userService {
     async create(request,){
-        const {email, password, role} = request
+        const {email, password, firstName, lastName, phoneNumber, role} = request
         if (!email || !password){
             return ('Неправильное имя пользователя или пароль')
         }
@@ -22,7 +22,7 @@ class userService {
             return ('Email уже занят')
         }
         const hashPassword = await bcrypt.hash(password,4)
-        const userInfo = await user.create({email, password: hashPassword, role})
+        const userInfo = await user.create({email, password: hashPassword, firstName, lastName, phoneNumber, role})
         const userBasket = await basket.create({userId: userInfo.id})
         const token = createJwt(userInfo.id, userInfo.email, userInfo.role)
         return ({token})
