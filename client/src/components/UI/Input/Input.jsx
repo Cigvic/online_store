@@ -1,9 +1,10 @@
 import React from 'react';
 import './Input.css';
 
-const Input = ({className, type = 'text', placeholder = '', id, ...props}) => {
+const Input = ({className, type = 'text', placeholder = '', id, required = false, value = '', ...props}) => {
+
   return (
-    <input className={className} type={type} placeholder={placeholder} id={id}/>
+    <input onChange={props.onChange} className={className} type={type} placeholder={placeholder} id={id} required={required} value={value}/>
   );
 };
 

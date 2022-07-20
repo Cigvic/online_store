@@ -1,9 +1,10 @@
 import React from 'react';
-import classes from './Register.module.css';
+import classes from './ForNewCustomers.module.css';
 import H3 from '../H3/H3';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
-const Register = () => {
+const ForNewCustomers = () => {
   return (
     <div className={classes.wrapper}>
       <H3 className={classes.title}>New Customer?</H3>
@@ -14,9 +15,12 @@ const Register = () => {
         <li>Keep more than one address</li>
         <li>Track orders and more</li>
       </ul>
-      <Button>Create An Account</Button>
+      <Link to="/registration"> 
+        <Button>Create An Account</Button>
+      </Link>
+
     </div>
   );
 };
 
-export default Register;
+export default ForNewCustomers;

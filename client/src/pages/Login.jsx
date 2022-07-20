@@ -2,7 +2,7 @@ import React from 'react';
 import Container from './../components/Container/Container';
 import PageTitle from 'components/UI/PageTitle/PageTitle';
 import LoginForm from './../components/UI/LoginForm/LoginForm';
-import Register from './../components/UI/Register/Register';
+import ForNewCustomers from '../components/UI/ForNewCustomers/ForNewCustomers';
 
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
       <PageTitle>Customer Login</PageTitle>
       <Container className='default flex all-center'>
         <LoginForm />
-        <Register />
+        <ForNewCustomers />
       </Container>
     </Container>
   );
