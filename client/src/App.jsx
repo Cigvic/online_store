@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Rules from './pages/Rules';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
+import Registration from './pages/Registration';
 
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
             <Route
               path='/terms-and-conditions'
               element={<Rules/>}
+            />
+            <Route
+              path='/registration'
+              element={<Registration/>}
             />
             <Route
               index

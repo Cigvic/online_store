@@ -1,0 +1,18 @@
+.form {
+  box-sizing: border-box;
+  padding: 37px 60px 40px;
+  background: #F5F7FF;
+}
+.input {
+  margin: 2px 0 10px 0;
+}
+.text {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 30px;
+  color: #000;
+}

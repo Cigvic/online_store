@@ -11,6 +11,7 @@
   border: none;
   padding: 15px 36px;
   transition: opacity .2s;
+  display: block;
 }
 .Button:hover {
   opacity: .7;
