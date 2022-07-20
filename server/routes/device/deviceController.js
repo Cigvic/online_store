@@ -2,40 +2,16 @@ const {device} = require("../../database/database");
 const uuid = require('uuid')
 const path = require('path')
 const apiError = require('../../error/apiError')
+const deviceService = require('../../services/deviceService')
 
 class deviceController {
     async create(request, response, next){
-        try {
-            const {name, price, description, typeId, brandId} = request.body
-            const {img} = request.files
-            let fileName = uuid.v4() + ".jpg"
-            img.mv(path.resolve(__dirname,'..','..','images',fileName))
-            const devices = await device.create({name, price, description, typeId, brandId, img: fileName})
+            const devices = await deviceService.create(request.body,request.files)
             return response.json(devices)
-        } catch (e) {
-            next(apiError.badRequest(e.message))
-        }
-
     }
 
     async getAll (request, response){
-        let {typeId, brandId, limit, page} = request.query
-        page = page || 1
-        limit = limit || 10
-        let offset = page * limit - limit
-        let devices
-        if (!typeId && !brandId) {
-            devices = await device.findAndCountAll({limit, offset})
-        }
-        if (!typeId && brandId) {
-            devices = await device.findAndCountAll({where: {brandId}, limit, offset})
-        }
-        if (typeId && !brandId) {
-            devices = await device.findAndCountAll({where: {typeId}, limit, offset})
-        }
-        if (typeId && brandId) {
-            devices = await device.findAndCountAll({where: {brandId, typeId},limit, offset})
-        }
+        const devices = await deviceService.getAll(request.query)
         return response.json(devices)
     }
 
@@ -43,24 +19,25 @@ class deviceController {
 
     }
 
-    async getOne (request, response, next) {
-        try {
-            const {id} = request.params
-            const deviceOne = await device.findOne({
-                where:{id}
-            })
-            return response.json(deviceOne)
-        } catch (e) {
-            next(apiError.badRequest(e.message))
-        }
-
+    async getOne (request, response) {
+        const devices = await deviceService.getOne(request.params)
+        return response.json(devices)
     }
 
     async new (request, response) {
-        const deviceOne = await device.findAll({ limit: 18, order: [['updatedAt', 'DESC']]});
-        return response.json(deviceOne)
+        return response.json(await deviceService.new())
     }
 
+    async rating (request, response){
+        const rating = await deviceService.rating(request.body)
+        return response.json(rating)
+    }
+
+    // getRating
+    async getRating (request, response) {
+        const rating = await deviceService.getRating(request.body)
+        return response.json(rating)
+    }
 }
 
 module.exports = new deviceController()

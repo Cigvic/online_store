@@ -1,29 +1,29 @@
-const {brand} = require("../../database/database");
-const apiError = require("../../error/apiError")
+const brandService = require("../../services/brandService")
+const apiError = require("../../error/apiError");
 
 class brandController {
     async create(request, response){
         const {name} = request.body
-        const brands = await brand.create({name})
+        const brands = await brandService.create({name})
         return response.json(brands)
     }
 
     async getAll (request, response){
-        const brands = await brand.findAll()
-        return response.json(brands)
+        return response.json(await brandService.getAll())
     }
-    async deleteOne (request, response, next) {
+
+    async deleteOne (request, response,next) {
         const {name} = request.body
-        const brands = await brand.destroy({ where: {
-                name: name
-            }
-        });
-        if (!brands) {
-            return next(apiError.badRequest(0))
+        const brands = await brandService.deleteOne({name})
+        if (!brands){
+            next(apiError.badRequest("С таким именем не существует"))
         }
-        return response.json({
-            "message": 1
-        })
+        else {
+            return response.json({
+                message: "ok"
+            })
+        }
+
     }
 
 }

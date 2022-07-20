@@ -1,34 +1,31 @@
 const {type} = require("../../database/database");
+const typeService = require("../../services/typeService");
+const apiError = require("../../error/apiError");
 
 
 class typeController {
     async create(request, response){
         const {name} = request.body
-        if(!name.length)
-        {
-            return response.json({message: "Нельзя пустое имя типа"})
-        }
-        try {
-            const brands = await type.create({name})
-            return response.json(brands)
-        } catch (e) {
-            return response.json({message: "Тип с таким именем уже существует"})
-        }
-
+        const types = await typeService.create({name})
+        return response.json(types)
     }
 
     async getAll (request, response){
-        const brands = await type.findAll()
-        return response.json(brands)
+        return response.json(await typeService.getAll())
     }
 
-    async deleteOne (request, response) {
+    async deleteOne (request, response,next) {
         const {name} = request.body
-        const types = await type.destroy({ where: {
-                name: name
-            }
-        });
-        return response.json(types)
+        const types = await typeService.deleteOne({name})
+        if (!types){
+            next(apiError.badRequest("С таким именем не существует"))
+        }
+        else {
+            return response.json({
+                message: "ok"
+            })
+        }
+
     }
 
 }
