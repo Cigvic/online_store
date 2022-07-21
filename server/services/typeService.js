@@ -1,18 +1,18 @@
 const {type} = require("../database/database");
-const apiError = require("../error/apiError");
+const {request} = require("express");
 
 class typeService {
-    async create(names){
-        const {name} = names
+    async create(request){
+        const {name} = request
         if(!name.length)
         {
-            return ({message: "Нельзя пустое имя типа"})
+            throw ("Нельзя пустое имя типа")
         }
         try {
             const types = await type.create({name})
             return (types)
         } catch (e) {
-            return ({message: "Тип с таким именем уже существует"})
+            throw ( "Тип с таким именем уже существует")
         }
     }
 
@@ -20,9 +20,17 @@ class typeService {
         return await type.findAll()
     }
 
-    async deleteOne (name) {
-        const types = await type.destroy({ where: name})
+    async deleteOne (request) {
+        const {name} = request
+
+        const types = await type.destroy({ where: {name}})
+        if(!types){
+            throw ( "Тип с таким именем не существует")
+        }
         return types
+
+
+
     }
 
 }

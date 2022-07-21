@@ -1,13 +1,16 @@
-const {type} = require("../../database/database");
 const typeService = require("../../services/typeService");
 const apiError = require("../../error/apiError");
 
 
 class typeController {
-    async create(request, response){
-        const {name} = request.body
-        const types = await typeService.create({name})
-        return response.json(types)
+    async create(request, response, next){
+        try {
+            const types = await typeService.create(request.body)
+            return response.json(types)
+        } catch (e) {
+            next(apiError.badRequest(e))
+        }
+
     }
 
     async getAll (request, response){
@@ -15,16 +18,15 @@ class typeController {
     }
 
     async deleteOne (request, response,next) {
-        const {name} = request.body
-        const types = await typeService.deleteOne({name})
-        if (!types){
-            next(apiError.badRequest("С таким именем не существует"))
-        }
-        else {
+        try {
+            const types = await typeService.deleteOne(request.body)
             return response.json({
                 message: "ok"
             })
+        } catch (e) {
+            next(apiError.badRequest(e))
         }
+
 
     }
 

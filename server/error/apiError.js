@@ -6,7 +6,7 @@ class apiError extends Error{
     }
 
     static badRequest(message){
-        return new apiError(404, message)
+        return new apiError(400, message)
     }
 
     static internal(message){
