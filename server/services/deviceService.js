@@ -65,7 +65,6 @@ class deviceService {
     async rating (request){
         const {deviceId, userId, rate} = request;
         const isRatingSet = await ratingDevice.findOne({where: {deviceId,userId}})
-        console.log("isRatingDevice=", isRatingSet)
         if (isRatingSet) {
             const updateRating = await ratingDevice.update(
                 {rate},
