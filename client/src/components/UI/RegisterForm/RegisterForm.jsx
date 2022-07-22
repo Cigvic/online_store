@@ -4,8 +4,12 @@ import Input from './../Input/Input';
 import Label from './../Label/Label';
 import H3 from '../H3/H3';
 import Button from '../Button/Button';
-import axios from 'axios';
+import userService from './../../../services/userService';
+import {useNavigate} from 'react-router-dom'
+import { tab } from '@testing-library/user-event/dist/tab';
+
 const RegisterForm = () => {
+  const navigate = useNavigate()
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
@@ -16,18 +20,13 @@ const RegisterForm = () => {
   
   async function handleSubmit (e) {
     e.preventDefault();
-    console.log(formState);
-    await axios.post('http://localhost:5000/api/user/registration', formState)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    const token = await userService.register(formState);
+    
+    navigate('/')
   }
 
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={handleSubmit}>
       <H3>Registration form</H3>
       <p className={classes.text}>Create an account</p>
       <Label isRequired={'1'} htmlFor="firstName"> 
@@ -50,7 +49,7 @@ const RegisterForm = () => {
         Phone
       </Label>
       <Input value={formState.phoneNumber} onChange={(e) => setFormState({...formState, phoneNumber:e.target.value})} className={`Input Input__light-theme ${classes.input}`} type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id='phone' placeholder='Your phone'/>
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Button type="submit">Submit</Button>
     </form>
   );
 };

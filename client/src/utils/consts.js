@@ -1,0 +1,8 @@
+export const ADMIN_ROUTE = '/admin'
+export const LOGIN_ROUTE = '/login'
+export const REGISTRATION_ROUTE = '/registration'
+export const CONTACT_US_ROUTE = '/contact-us'
+export const DEVICE_ROUTE = '/device'
+export const ABOUT_US_ROUTE = '/about-us'
+export const TERMS_AND_CONDITIONS_ROUTE = '/terms-and-conditions'
+export const BASKET_ROUTE = '/basket'

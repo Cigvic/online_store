@@ -1,45 +1,22 @@
-import React from 'react';
-import Home from './pages/Home';
+import React, {useEffect, useContext} from 'react';
 import Header from 'components/Header/Header';
 import Footer from './components/Footer/Footer';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
-import Login from './pages/Login';
-import Rules from './pages/Rules';
-import AboutUs from './pages/AboutUs';
-import ContactUs from './pages/ContactUs';
-import Registration from './pages/Registration';
+import { BrowserRouter } from 'react-router-dom';
+
+import AppRouter from 'components/AppRouter';
+import { Context } from 'index';
 
 
 function App() {
+  const {user} = useContext(Context)
+  useEffect(() => {
+    user.setUser({})
+    user.setIsAuth(false);
+  }, [])
   return (
     <BrowserRouter>
         <Header />
-          <Routes>
-            <Route 
-              path="/login" 
-              element={<Login/>}
-            />
-            <Route 
-              path="/contact-us" 
-              element={<ContactUs/>}
-            />
-            <Route 
-              path="/about-us" 
-              element={<AboutUs/>}
-            />
-            <Route
-              path='/terms-and-conditions'
-              element={<Rules/>}
-            />
-            <Route
-              path='/registration'
-              element={<Registration/>}
-            />
-            <Route
-              index
-              element={<Home/>}
-            />
-          </Routes>
+          <AppRouter/>
         <Footer />
     </BrowserRouter>
   );
