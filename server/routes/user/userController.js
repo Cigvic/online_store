@@ -26,7 +26,7 @@ class userController {
     }
     async updateJwt (request, response, next) {
         const token = await userService.updateJwt(request.user.id, request.user.email, request.user.role, request.user.firstName, request.user.lastName, request.user.phoneNumber)
-        return response.json({token})
+        return response.json(token)
     }
 
 }

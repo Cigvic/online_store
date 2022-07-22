@@ -1,13 +1,15 @@
-const {device} = require("../../database/database");
-const uuid = require('uuid')
-const path = require('path')
 const apiError = require('../../error/apiError')
 const deviceService = require('../../services/deviceService')
 
 class deviceController {
     async create(request, response, next){
+        try {
             const devices = await deviceService.create(request.body,request.files)
             return response.json(devices)
+        } catch (e) {
+            next(apiError.badRequest(e))
+        }
+
     }
 
     async getAll (request, response){
@@ -16,12 +18,22 @@ class deviceController {
     }
 
     async deleteOne (request, response, next) {
-
+        try {
+            const devices = await deviceService.deleteOne(request.body)
+            return response.json({message: "ok"})
+        } catch (e) {
+            next(apiError.badRequest(e))
+        }
     }
 
-    async getOne (request, response) {
-        const devices = await deviceService.getOne(request.params)
-        return response.json(devices)
+    async getOne (request, response, next) {
+        try {
+            const devices = await deviceService.getOne(request.params)
+            return response.json(devices)
+        } catch (e) {
+            next(apiError.badRequest(e))
+        }
+
     }
 
     async new (request, response) {
