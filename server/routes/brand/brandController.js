@@ -3,8 +3,7 @@ const apiError = require("../../error/apiError");
 
 class brandController {
     async create(request, response){
-        const {name} = request.body
-        const brands = await brandService.create({name})
+        const brands = await brandService.create(request.body)
         return response.json(brands)
     }
 
@@ -13,15 +12,11 @@ class brandController {
     }
 
     async deleteOne (request, response,next) {
-        const {name} = request.body
-        const brands = await brandService.deleteOne({name})
-        if (!brands){
-            next(apiError.badRequest("С таким именем не существует"))
-        }
-        else {
-            return response.json({
-                message: "ok"
-            })
+        try {
+            const types = await brandService.deleteOne(request.body)
+            return response.json({message: "ok"})
+        } catch (e) {
+            next(apiError.badRequest(e))
         }
 
     }

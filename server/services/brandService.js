@@ -2,8 +2,9 @@ const {brand} = require("../database/database");
 const apiError = require("../error/apiError");
 
 class brandService {
-    async create(name){
-        const brands = await brand.create(name);
+    async create(request){
+        const {name} = request
+        const brands = await brand.create({name});
         return brands
     }
 
@@ -11,8 +12,13 @@ class brandService {
         return await brand.findAll()
     }
 
-    async deleteOne (name) {
-        const brands = await brand.destroy({ where: name})
+    async deleteOne (request) {
+        const {name} = request
+
+        const brands = await brand.destroy({ where: {name}})
+        if(!brands){
+            throw ( "Бренд с таким именем не существует")
+        }
         return brands
     }
 

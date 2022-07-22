@@ -5,7 +5,7 @@ const {user, basket} = require('../database/database')
 
 const createJwt = (id, email, role, firstName, lastName, phoneNumber) => {
     return  jwt.sign(
-        {id, email, role, firstName, lastName, phoneNumber},
+        {id, email, role, firstName, lastName, phoneNumber, exp: Math.floor(Date.now() / 1000) + (60 * 60)},
         process.env.SECRET_KEY,
         {expiresIn: '24h'}
     )

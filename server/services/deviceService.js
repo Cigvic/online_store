@@ -1,4 +1,4 @@
-const {device, user, ratingDevice} = require("../database/database");
+const {device, ratingDevice} = require("../database/database");
 const uuid = require('uuid')
 const path = require('path')
 const sequelize = require('sequelize')
@@ -14,7 +14,7 @@ class deviceService {
             const devices = await device.create({name, price, description, typeId, brandId, img: fileName})
             return devices
         } catch (e) {
-            return (e)
+            throw (e)
         }
 
     }
@@ -40,9 +40,16 @@ class deviceService {
         return (devices)
     }
 
-    async deleteOne (request, response, next) {
+    async deleteOne (request) {
+        const {name} = request
 
+        const devices = await device.destroy({ where: {name}})
+        if(!devices){
+            throw ( "Девайс с таким именем не существует")
+        }
+        return devices
     }
+
 
     async getOne (request) {
         try {
@@ -52,7 +59,7 @@ class deviceService {
             })
             return (deviceOne)
         } catch (e) {
-            return (e)
+            throw (e)
         }
 
     }
