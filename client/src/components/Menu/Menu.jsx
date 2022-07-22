@@ -60,7 +60,7 @@ const Menu = ({items}, ...props) => {
             )}}>
 
           </button>
-          <button className='user-nav__basket' onClick={e => setProductCount(productCount + 1)}>
+          <button className='user-nav__basket' onClick={e => {setProductCount(productCount + 1); localStorage.clear()}}>
             {renderProductCount()}
           </button>
           <Link to='/login'>

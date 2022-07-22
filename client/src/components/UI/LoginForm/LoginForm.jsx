@@ -19,9 +19,10 @@ const LoginForm = () => {
   const {user} = useContext(Context);
   const navigate = useNavigate();
   async function handleSubmit(data) {
-    const response = await userService.login(data);
+    const token = await userService.login(data);
+    console.log(token);
     try {
-      const userData = jwt_decode(response)
+      const userData = jwt_decode(token)
       user.setUser(userData);
       user.setIsAuth(true);
       alert('HI')

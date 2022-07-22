@@ -1,9 +1,9 @@
-import { $host } from "http/config";
-import jwt_decode from 'jwt-decode';
+import { $host, $authHost } from "http/config";
 
 export default class userService {
   static async login(data) {
     const response = await $host.post('/api/user/login', data)
+    localStorage.setItem("token", response.data.token)
       return response.data.token
   }
   static async logout() {
@@ -23,7 +23,15 @@ export default class userService {
   static refreshToken() {
 
   }
-  static checkToken() {
-
+  static async checkToken() {
+    console.log('Checking token...')
+    try {
+      const {data} = await $authHost.get('/api/user/auth');
+      localStorage.setItem('token', data.token)
+    }
+    catch (e) {
+      // localStorage.clear();
+      console.log(e.message)
+    }
   }
 }

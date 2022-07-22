@@ -6,7 +6,6 @@ import H3 from '../H3/H3';
 import Button from '../Button/Button';
 import userService from './../../../services/userService';
 import {useNavigate} from 'react-router-dom'
-import { tab } from '@testing-library/user-event/dist/tab';
 
 const RegisterForm = () => {
   const navigate = useNavigate()
@@ -20,9 +19,8 @@ const RegisterForm = () => {
   
   async function handleSubmit (e) {
     e.preventDefault();
-    const token = await userService.register(formState);
-    
-    navigate('/')
+    await userService.register(formState);
+    navigate('/');
   }
 
   return (
