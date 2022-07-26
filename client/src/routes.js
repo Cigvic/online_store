@@ -61,9 +61,5 @@ export const publicRoutes = [
   {
     path: DEVICE_ROUTE + '/:id',
     Component: Device
-  },
-  {
-    path: BASKET_ROUTE,
-    Component: Basket
   }
 ]

@@ -63,7 +63,7 @@ const Menu = ({items}, ...props) => {
           <button className='user-nav__basket' onClick={e => {setProductCount(productCount + 1); localStorage.clear()}}>
             {renderProductCount()}
           </button>
-          <Link to='/login'>
+          <Link to='/login' onMouseEnter={() => console.log('enter')} onMouseLeave={() => console.log('exit')}>
             <button className='user-nav__profile'></button>
           </Link>
         </div>

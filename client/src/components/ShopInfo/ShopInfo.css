@@ -1,5 +1,7 @@
 .ShopInfo {
-  pointer-events: none; 
+  position: absolute;
+  left: 100px;
+  top: -350px;
   color: #000;
   box-sizing: border-box;
   width: 262px;
@@ -7,6 +9,18 @@
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.14);
+}
+.ShopInfo::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  width: 23.65px;
+  height: 11.96px;
+  left: 13.57px;
+  top: -7.75px;
+  background: #FFFFFF;
+  border: 1px solid #CACDD8;
+  border-radius: 3px;
 }
 
 .ShopInfo__text {

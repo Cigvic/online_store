@@ -1,18 +1,20 @@
 import React, {useContext} from 'react';
 import Home from 'pages/Home';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import { authRoutes, publicRoutes } from './../routes';
-import NotFound from './../pages/NotFound';
 import { Context } from 'index';
+import { observer } from 'mobx-react-lite';
 
-const AppRouter = () => {
+const AppRouter = observer(() => {
   
   const {user} = useContext(Context)
 
   return (
     <Routes>
-      {user.isAuth 
+      {
+      user.isAuth
       ? authRoutes.map(({path, Component}) => {
+        console.log('auth routes render');
         return (
           <Route
             key={path}
@@ -23,6 +25,7 @@ const AppRouter = () => {
         )
       })
       : publicRoutes.map(({path, Component}) => {
+        console.log('unauth routes render')
         return (
           <Route
             key={path}
@@ -40,10 +43,10 @@ const AppRouter = () => {
       />
       <Route
         path="*"
-        element={<NotFound/>}
+        element={<Navigate to="/" replace />}
       />
     </Routes>
   );
-};
+})
 
 export default AppRouter;

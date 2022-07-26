@@ -3,8 +3,7 @@ import { $host, $authHost } from "http/config";
 export default class userService {
   static async login(data) {
     const response = await $host.post('/api/user/login', data)
-    localStorage.setItem("token", response.data.token)
-      return response.data.token
+    return response;
   }
   static async logout() {
 

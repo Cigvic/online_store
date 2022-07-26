@@ -1,11 +1,10 @@
 import React from 'react';
-import './Loader.css';
-import Container from './../../Container/Container';
+import classes from './Loader.module.css';
 const Loader = () => {
   return (
-    <Container className='default centered flex all-center'>
-      <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    </Container>
+    <div className={classes.container}>
+      <div className={classes['lds-roller']}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
   );
 };
 

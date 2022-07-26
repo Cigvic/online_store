@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Label from '../Label/Label';
 import { Context } from 'index';
 import userService from './../../../services/userService';
-import jwt_decode from 'jwt-decode';
+import jwt_decode  from 'jwt-decode';
 
 
 const LoginForm = () => {
@@ -19,13 +19,11 @@ const LoginForm = () => {
   const {user} = useContext(Context);
   const navigate = useNavigate();
   async function handleSubmit(data) {
-    const token = await userService.login(data);
-    console.log(token);
+    const response = await userService.login(data);
     try {
-      const userData = jwt_decode(token)
-      user.setUser(userData);
+      localStorage.setItem("token", response.data.token);
       user.setIsAuth(true);
-      alert('HI')
+      user.setUser(jwt_decode(response.data.token))
       navigate('/');
     }
     catch (e) {

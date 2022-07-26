@@ -1,11 +1,11 @@
 const menuItems = [
   {
     title: 'Laptops',
-    link: 'https://google.com'
+    link: '/admin'
   },
   {
     title: 'Desktop PCs',
-    link: 'https://google.com'
+    link: '/basket'
   },
   {
     title: 'Networking Devices',
