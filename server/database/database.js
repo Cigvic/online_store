@@ -50,6 +50,10 @@ const basketDevice = sequelize.define('basketDevice', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
+const order = sequelize.define('order', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+})
+
 user.hasMany(ratingDevice)
 ratingDevice.belongsTo(user)
 
@@ -74,6 +78,12 @@ basketDevice.belongsTo(basket)
 device.hasMany(basketDevice)
 basketDevice.belongsTo(device)
 
+user.hasMany(order)
+order.belongsTo(user)
+
+order.hasMany(basketDevice)
+basketDevice.belongsTo(order)
+
 module.exports = {
     user,
     basket,
@@ -82,5 +92,6 @@ module.exports = {
     type,
     brand,
     ratingDevice,
-    typeBrand
+    typeBrand,
+    order
 }
