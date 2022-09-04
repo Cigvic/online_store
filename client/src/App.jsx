@@ -16,18 +16,21 @@ function App() {
 
   useEffect(() => {
     userService.checkToken()
-    .then(() => {
+    .then((res) => {
       user.setIsAuth(true);
       user.setUser(jwt_decode(localStorage.getItem('token')));
-      console.log('Authorized');
+      console.log('Authorized', user.user);
     })
-    .catch(() => {
-      user.setIsAuth(false);
-      user.setUser({});
-      console.log('Unauthorized')
+    .catch((e) => {
+      if (e.request.status === 401) {
+        localStorage.clear();
+        user.setIsAuth(false);
+        user.setUser({});
+        console.log('Unauthorized');
+      }
     })
     .finally(() => setIsLoading(false))
-  })
+  }, [])
   return (
     (isLoading) 
     ? <div style={{width: '100wh', height: '100vh', display: 'flex', justifyContent:'center', alignItems:'center'}}>

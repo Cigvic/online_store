@@ -2,19 +2,13 @@ import { $host, $authHost } from "http/config";
 
 export default class userService {
   static async login(data) {
-    const response = await $host.post('/api/user/login', data)
-    return response;
+    return await $host.post('/api/user/login', data)
   }
   static async logout() {
 
   }
   static async register(data) {
-    const response = await $host.post('/api/user/registration', data)
-    try {
-      return response.data.token
-    } catch(e) {
-      alert(e);
-    }
+    return await $host.post('/api/user/registration', data)
     }
   static checkRole(user) {
 
@@ -24,13 +18,6 @@ export default class userService {
   }
   static async checkToken() {
     console.log('Checking token...')
-    try {
-      const {data} = await $authHost.get('/api/user/auth');
-      localStorage.setItem('token', data.token)
-    }
-    catch (e) {
-      // localStorage.clear();
-      console.log(e.message)
-    }
-  }
+    return await $authHost.get('/api/user/auth');
+}
 }

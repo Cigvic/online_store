@@ -19,16 +19,17 @@ const LoginForm = () => {
   const {user} = useContext(Context);
   const navigate = useNavigate();
   async function handleSubmit(data) {
-    const response = await userService.login(data);
-    try {
-      localStorage.setItem("token", response.data.token);
+    await userService.login(data)
+    .then((res) => {
+      console.log(res.data);
+      localStorage.setItem("token", res.data.token);
       user.setIsAuth(true);
-      user.setUser(jwt_decode(response.data.token))
+      user.setUser(jwt_decode(res.data.token))
       navigate('/');
-    }
-    catch (e) {
+    })
+    .catch ((e) => {
       alert('Неправильный логин или пароль');
-    }
+    })
   }
 
   return (

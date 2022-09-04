@@ -42,7 +42,7 @@ const NewProducts = () => {
         {
           products.map((item, index) => {
             return (
-              <SwiperSlide key={index} style={{width: '234px'}}>
+              <SwiperSlide key={index} style={{width: '230px', margin: '0 2px'}}>
                 <ProductCard {...item}/>
               </SwiperSlide>
             )

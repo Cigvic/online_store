@@ -19,7 +19,7 @@ const Footer = () => {
       </Container>
       <Container className='full-width Footer__black-wrapper'>
         <Container className='default centered'>
-          <SubcribeForm />
+          {/* <SubcribeForm /> */}
           <NavPanel />
         </Container>
         <Container className='default centered'>

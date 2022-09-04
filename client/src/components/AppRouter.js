@@ -14,25 +14,21 @@ const AppRouter = observer(() => {
       {
       user.isAuth
       ? authRoutes.map(({path, Component}) => {
-        console.log('auth routes render');
         return (
           <Route
             key={path}
             path={path}
             element={Component()}
           />
-
         )
       })
       : publicRoutes.map(({path, Component}) => {
-        console.log('unauth routes render')
         return (
           <Route
             key={path}
             path={path}
             element={Component()}
           />
-
         )
       })
       

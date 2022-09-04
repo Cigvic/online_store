@@ -1,10 +1,12 @@
 import React from 'react';
+import Container from 'components/Container/Container';
+import PageTitle from './../components/UI/PageTitle/PageTitle';
 
 const Admin = () => {
   return (
-    <div>
-      Admin
-    </div>
+    <Container className='default centered'>
+      <PageTitle>Admin Dashboard</PageTitle>
+    </Container>
   );
 };
 
