@@ -1,7 +1,8 @@
-.ShopInfo {
+.container {
+  z-index: 1;
   position: absolute;
-  left: 100px;
-  top: -350px;
+  left: 0px;
+  top: 30px;
   color: #000;
   box-sizing: border-box;
   width: 262px;
@@ -10,32 +11,42 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.14);
 }
-.ShopInfo::after {
-  content: '';
+.wrapper {
+  border-radius: 5px;
+  position: relative;
+  z-index: 3;
   box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+}
+
+.container::before {
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  transform: rotate(45deg);
+  left: 35px;
+  top: -8px;
   position: absolute;
-  width: 23.65px;
-  height: 11.96px;
-  left: 13.57px;
-  top: -7.75px;
-  background: #FFFFFF;
-  border: 1px solid #CACDD8;
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: #FFF;
   border-radius: 3px;
 }
 
-.ShopInfo__text {
+.text {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
 
 
-.ShopInfo__grey-text {
+.grey-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #A2A6B0;
 }
 
-.ShopInfo__working-time{
+.working-time{
   padding-right: 24px;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -45,10 +56,10 @@
   justify-content: center;
   border-bottom: 1px solid #CACDD8;
 }
-.ShopInfo__text-block {
+.text-block {
   height: 100%;
 }
-.ShopInfo__paragraph {
+.paragraph {
   max-width: 189px;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
@@ -58,21 +69,21 @@
   text-align: start;
   margin: 0;
 }
-.ShopInfo__paragraph_first-row {
+.paragraph_first-row {
   margin: 15px 0 4px;
 }
-.ShopInfo__info-text {
+.info-text {
   font-weight: 600;
   font-size: 13px;
   line-height: 14px;
   text-align: start;
   margin: 0 0 9px 0;
 }
-.ShopInfo__clock {
+.clock {
   align-self: flex-start;
   margin: 10px 7px 0 8px;
 }
-.ShopInfo__address {
+.address {
   height: 57px;
   display: flex;
   align-items: center;
@@ -81,7 +92,7 @@
   padding: 0 23px 0 9px;
   border-bottom: 1px solid #CACDD8;
 }
-.ShopInfo__phone {
+.phone {
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -10,7 +10,7 @@ import Copyright from './Copyright/Copyright';
 const Footer = () => {
   return (
     <div className='Footer'>
-      <Container className='full-width'>
+      <Container className='full-width Footer__card-wrapper_colored'>
         <Container className='default centered Footer__card-wrapper'>
           <MarketingCard icon={Icons.support} title='Product Support' text='Up to 3 years on-site warranty available for your peace of mind.'/>
           <MarketingCard icon={Icons.account} title='Personal Account' text='With big discounts, free delivery and a dedicated support specialist.'/>
@@ -19,7 +19,7 @@ const Footer = () => {
       </Container>
       <Container className='full-width Footer__black-wrapper'>
         <Container className='default centered'>
-          {/* <SubcribeForm /> */}
+          <SubcribeForm />
           <NavPanel />
         </Container>
         <Container className='default centered'>

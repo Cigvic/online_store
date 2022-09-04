@@ -1,14 +1,17 @@
 .card {
+  background-color: #FFF;
   width: 225px;
-  height: 346px;
+  margin: 0 5px;
   box-sizing: border-box;
-  padding: 7px 25px 23px;
+  padding: 7px 25px 15px;
   border: 1px solid transparent;
-  transition: border .2s;
+  transition: box-shadow .3s;
   cursor: pointer;
+  border-radius: 5px;
+  max-height: 400px;
 }
 .card:hover {
-  border: 1px solid #CACDD8;
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
 }
 .thumb {
   display: block;
@@ -86,4 +89,19 @@
   line-height: 140%;
   color: #000000;
   margin: 0;
+}
+.button {
+  margin: 10px auto 0;
+  color: #0156FF;
+  padding: 8px 20px;
+  border: 1px solid #0156FF;
+  background-color: #FFF;
+  transition: background-color .3s, color .3s;
+}
+.basket {
+  font-family: 'icomoon';
+}
+.button:hover {
+  background-color: #0156FF;
+  color: #FFF;
 }

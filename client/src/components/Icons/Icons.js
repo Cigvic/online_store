@@ -22,7 +22,6 @@ class Icons {
   static americanExpress = americanExpress;
   static fb = fb;
   static instagram = instagram;
-
 }
 
 export default Icons;

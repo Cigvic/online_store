@@ -30,7 +30,7 @@ function App() {
       }
     })
     .finally(() => setIsLoading(false))
-  }, [])
+  }, [user])
   return (
     (isLoading) 
     ? <div style={{width: '100wh', height: '100vh', display: 'flex', justifyContent:'center', alignItems:'center'}}>

@@ -1,9 +1,10 @@
-import React from 'react';
-import classes from './Policy.module.css'
+
+import classes from './Policy.module.css';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 const Policy = () => {
   return (
     <div className={classes.main}>
-      <div className={classes.textblock}>
+            <div className={classes.textblock}>
         <h2 className={classes.h2}>GENERAL TERMS AND CONDITIONS FOR SALE OF PRODUCTS AND SERVICES</h2>
         <h3 id="Definitions & Interpretation" className={classes.h3}>Definitions & Interpretation</h3>
         <p className={classes.p}>In the following Terms and Conditions of sale, unless the context requires otherwise</p>
@@ -42,31 +43,31 @@ const Policy = () => {
       <div>
         <nav className={classes.nav}>
           <li className={classes.navItem}>
-            <a href="#Definitions & Interpretation" className={classes.navLink}>Definitions & Interpretation</a>
+            <AnchorLink href="#Definitions & Interpretation" className={classes.navLink}>Definitions & Interpretation</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#General" className={classes.navLink}>General</a>
+            <AnchorLink href="#General" className={classes.navLink}>General</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#Quotations" className={classes.navLink}>Quotations</a>
+            <AnchorLink href="#Quotations" className={classes.navLink}>Quotations</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#Prices / Taxes" className={classes.navLink}>Prices / Taxes</a>
+            <AnchorLink href="#Prices / Taxes" className={classes.navLink}>Prices / Taxes</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#Terms of Payment" className={classes.navLink}>Terms of Payment</a>
+            <AnchorLink href="#Terms of Payment" className={classes.navLink}>Terms of Payment</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#Credit Accounts" className={classes.navLink}>Credit Accounts</a>
+            <AnchorLink href="#Credit Accounts" className={classes.navLink}>Credit Accounts</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#Change of Ownership" className={classes.navLink}>Change of Ownership</a>
+            <AnchorLink href="#Change of Ownership" className={classes.navLink}>Change of Ownership</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#Information on the Products supplied" className={classes.navLink}>Information on the Products supplied</a>
+            <AnchorLink href="#Information on the Products supplied" className={classes.navLink}>Information on the Products supplied</AnchorLink>
           </li>
           <li className={classes.navItem}>
-            <a href="#Delivery" className={classes.navLink}>Delivery</a>
+            <AnchorLink href="#Delivery" className={classes.navLink}>Delivery</AnchorLink>
           </li>
         </nav>
       </div>

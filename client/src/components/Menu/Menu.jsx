@@ -2,13 +2,18 @@ import {useState, useContext} from 'react';
 import './Menu.css';
 import Container from './../Container/Container';
 import {Link} from 'react-router-dom';
+import Account from '../Account/Account';
 import { Context } from 'index';
+import { observer } from 'mobx-react-lite';
+import authAvatar from './assets/profile__avatar.jpg';
+import unAuthAvatar from './assets/unauth_user.svg';
 
-const Menu = ({items}, ...props) => {
+// @ts-ignore
+const Menu = observer(({items}, ...props) => {
+  const {user} = useContext(Context);
   const [element, setElement] = useState ([renderMenuItems (items)]),
-        [productCount, setProductCount] = useState(0);
-
-  const {user} = useContext(Context)
+        [productCount, setProductCount] = useState(0),
+        [isAccountMenuVisible, setIsAccountMenuVisible] = useState(false);
         
   function renderMenuItems(items) {
     return(
@@ -39,11 +44,17 @@ const Menu = ({items}, ...props) => {
     <div className='Menu'>
       <Container className='default flex justify-space-between align-center'>
         <div className='Menu__container'>
-        <button onClick={e => console.log(user)}>
-          <svg width="34" height="41" viewBox="0 0 34 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.0331 0.945374L0.296875 10.8637V23.0708L17.0331 32.9891L30.4588 25.3596V28.9836L17.0331 36.9946L0.296875 26.8855V31.2725L17.0331 41L33.7693 31.2725V19.0653L20.3435 26.8855V23.0708L33.7693 15.0599V10.8637L17.0331 0.945374Z" fill="#0156FF"/>
-          </svg>
-        </button>
+          <Link to='/'>
+            <svg 
+            style={{cursor:'pointer'}} 
+            width="34" 
+            height="41" 
+            viewBox="0 0 34 41" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.0331 0.945374L0.296875 10.8637V23.0708L17.0331 32.9891L30.4588 25.3596V28.9836L17.0331 36.9946L0.296875 26.8855V31.2725L17.0331 41L33.7693 31.2725V19.0653L20.3435 26.8855V23.0708L33.7693 15.0599V10.8637L17.0331 0.945374Z" fill="#0156FF"/>
+            </svg>
+          </Link>
           { 
             element
           }
@@ -63,13 +74,27 @@ const Menu = ({items}, ...props) => {
           <button className='user-nav__basket' onClick={e => {setProductCount(productCount + 1); localStorage.clear()}}>
             {renderProductCount()}
           </button>
-          <Link to='/login' onMouseEnter={() => console.log('enter')} onMouseLeave={() => console.log('exit')}>
-            <button className='user-nav__profile'></button>
-          </Link>
+          <div style={{position: 'relative'}}>
+            <button 
+            className='user-nav__profile' 
+            onClick={() => setIsAccountMenuVisible(!isAccountMenuVisible)}
+            style={
+              (user.isAuth)
+              ? {
+                background: `url(${authAvatar})`
+              }
+              : 
+              {
+                background: `url(${unAuthAvatar})`
+              }
+            }
+            />
+            {isAccountMenuVisible && <Account user={user} setIsAccountMenuVisible={setIsAccountMenuVisible}/>}
+          </div>
         </div>
       </Container>
     </div>
   );
-};
+})
 
 export default Menu;

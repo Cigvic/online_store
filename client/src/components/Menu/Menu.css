@@ -145,20 +145,15 @@
 }
 
 .user-nav__profile {
+  position: relative;
   padding: 0;
   cursor: pointer;
-  transition: opacity .4s;
   border: none;
   border-radius: 50%;
   width: 36px;
   height: 36px;
   background-position: center center;
   background-size: cover;
-  background-image: url(./assets/profile__avatar.jpg);
-}
-
-.user-nav__profile:hover {
-  opacity: .8;
 }
 
 .search-input {

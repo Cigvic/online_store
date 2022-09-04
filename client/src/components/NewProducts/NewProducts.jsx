@@ -20,9 +20,7 @@ const NewProducts = () => {
       limit: 18,
     }});
     setProducts(response.data.products);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000)
+    setLoading(false);
   }
   useEffect(() => {
     fetchProducts()
@@ -34,7 +32,7 @@ const NewProducts = () => {
         <Link to='/' className={classes.link}>See All New Products</Link>
       </div>
       {(Loading) ? <Loader/> : <Swiper
-        style={{paddingRight: '1px'}}
+        style={{padding: '5px 2px 5px 0'}}
         modules={[Navigation]} 
         navigation 
         slidesPerView={6}
@@ -42,7 +40,7 @@ const NewProducts = () => {
         {
           products.map((item, index) => {
             return (
-              <SwiperSlide key={index} style={{width: '230px', margin: '0 2px'}}>
+              <SwiperSlide key={index}>
                 <ProductCard {...item}/>
               </SwiperSlide>
             )

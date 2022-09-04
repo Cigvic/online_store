@@ -1,19 +1,19 @@
-import { CONTACT_US_ROUTE, ABOUT_US_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TERMS_AND_CONDITIONS_ROUTE, ADMIN_ROUTE, DEVICE_ROUTE, BASKET_ROUTE } from './utils/consts';
+import { CONTACT_US_ROUTE, ABOUT_US_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TERMS_AND_CONDITIONS_ROUTE, DASHBOARD_ROUTE, DEVICE_ROUTE, BASKET_ROUTE } from './utils/consts';
 
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
 import Rules from './pages/Rules';
-import Admin from './pages/Admin';
+import Dashboard from './pages/Dashboard';
 import Device from './pages/Device';
 import Basket from './pages/Basket';
 
 export const authRoutes = [
 
   {
-    path: ADMIN_ROUTE,
-    Component: Admin
+    path: DASHBOARD_ROUTE,
+    Component: Dashboard
   },
   {
     path: BASKET_ROUTE,

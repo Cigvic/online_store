@@ -1,5 +1,5 @@
-import React from 'react';
 import classes from './ProductCard.module.css';
+import Button from './../Button/Button';
 
 const ProductCard = (props) => {
   function renderRating () {
@@ -42,6 +42,7 @@ const ProductCard = (props) => {
       <h3 className={classes.title}>{`${props.title} : ${props.description}`}</h3>
       <p className={classes.noDiscountPrice}>${props.price}.00</p>
       <p className={classes.price}>${(props.price*(100 - props.discountPercentage)/100).toFixed(2)}</p>
+      <Button className={classes.button}><i className={classes.basket}></i> Add To Cart</Button>
     </article>
   );
 };

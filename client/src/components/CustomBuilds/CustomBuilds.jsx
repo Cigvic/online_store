@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Container from 'components/Container/Container';
 import ProductCard from './../UI/ProductCard/ProductCard';
 import axios from 'axios';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Preview from './../Preview/Preview';
 
 const CustomBuilds = () => {
@@ -18,21 +17,17 @@ const CustomBuilds = () => {
     fetchProducts()
   }, []);
   return (
-    <Container className='default flex'>
+    <Container className='default flex all-center'>
       <Preview title='Custome Builds' background='https://thumb.cloud.mail.ru/weblink/thumb/xw1/NS7a/NzHWDsVKL'/>
-      <Swiper
-        slidesPerView={5}
-      >
+      <Container className='default flex all-center'>
         {
             products.map((item, index) => {
               return (
-                <SwiperSlide key={index}>
-                  <ProductCard {...item} />
-                </SwiperSlide>
+                  <ProductCard key={index} {...item} />
               )
             })
           }
-      </Swiper>
+      </Container>
     </Container>
   );
 };

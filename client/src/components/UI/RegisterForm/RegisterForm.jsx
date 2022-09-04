@@ -19,8 +19,12 @@ const RegisterForm = () => {
   
   async function handleSubmit (e) {
     e.preventDefault();
-    await userService.register(formState);
-    navigate('/');
+    await userService.register(formState)
+    .then((res) => {
+      alert('Вы успешно зарегистрировались');
+      navigate('/');
+    })
+    .catch((e) => alert("Произошла ошибка"))
   }
 
   return (

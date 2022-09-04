@@ -21,7 +21,7 @@ const LoginForm = () => {
   async function handleSubmit(data) {
     await userService.login(data)
     .then((res) => {
-      console.log(res.data);
+      alert('Вы успешно авторизовались');
       localStorage.setItem("token", res.data.token);
       user.setIsAuth(true);
       user.setUser(jwt_decode(res.data.token))

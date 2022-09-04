@@ -1,9 +1,12 @@
 .Footer {
+  margin-top: 35px;
   box-sizing: border-box;
   width: 100%;
   height: 520px;
 }
-
+.Footer__card-wrapper_colored {
+  background-color: #F5F7FF;
+}
 .Footer__card-wrapper {
   padding: 60px 0 45px;
   display: flex;

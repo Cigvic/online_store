@@ -1,31 +1,27 @@
 const menuItems = [
   {
     title: 'Laptops',
-    link: '/admin'
+    link: '/dashboard'
   },
   {
     title: 'Desktop PCs',
     link: '/basket'
   },
   {
-    title: 'Networking Devices',
+    title: 'All In One PCs',
     link: 'https://google.com'
   },
   {
-    title: 'Printers & Scanners',
+    title: 'Custom Builds',
     link: 'https://google.com'
   },
   {
-    title: 'PC Parts',
-    link: 'https://google.com'
-  },
-  {
-    title: 'All Other Products',
-    link: 'https://google.com'
-  },
-  {
-    title: 'Repair',
+    title: 'About Us',
     link: '/about-us'
+  },
+  {
+    title: 'Terms And Conditions',
+    link: '/terms-and-conditions'
   }
 ];
 
