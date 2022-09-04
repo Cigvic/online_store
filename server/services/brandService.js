@@ -4,8 +4,7 @@ const apiError = require("../error/apiError");
 class brandService {
     async create(request){
         const {name} = request
-        const brands = await brand.create({name});
-        return brands
+        return await brand.create({name});
     }
 
     async getAll (){
