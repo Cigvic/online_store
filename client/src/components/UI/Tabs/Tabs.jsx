@@ -15,7 +15,11 @@ const Tabs = ({headers, update, state, ...props}) => {
       {
         (Loading) ? <Loader /> : headers.map((item, index) => {
           return (
-            <button className={`${classes.tabLink} ${(index === active) ? classes.tabLinkActive : ''}`} key={index} onClick={(e) => { toggleTab(e, index, item.config) }}>{item.title}</button>
+            <button 
+            className={`${classes.tabLink} ${(index === active) && classes.tabLinkActive}`} 
+            key={index} 
+            onClick={(e) => { toggleTab(e, index, item.config) }}
+            >{item.title}</button>
           )
         })
       }

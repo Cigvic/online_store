@@ -90,18 +90,58 @@
   color: #000000;
   margin: 0;
 }
-.button {
+.buttonContainer {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 210%;
   margin: 10px auto 0;
-  color: #0156FF;
+}
+.button {
+  margin: 0 auto;
   padding: 8px 20px;
+  color: #0156FF;
   border: 1px solid #0156FF;
   background-color: #FFF;
-  transition: background-color .3s, color .3s;
+  transition: background-color .4s, color .4s;
 }
 .basket {
   font-family: 'icomoon';
 }
-.button:hover {
+.button:hover, .editBtn:hover {
   background-color: #0156FF;
   color: #FFF;
+  opacity: 1;
+}
+.buttonAdded {
+  background-color: #0156FF;
+  color: #FFF;
+  padding: 8px 15px;
+  border: 1px solid #0156FF;
+  transition: opacity .4s;
+}
+.buttonAdded:hover {
+  opacity: .8;
+}
+.editBtn {
+  font-size: 20px;
+  transition: background-color .4s, color .4s;
+  color: #0156FF;
+  border: 1px solid #0156FF;
+  background-color: #FFF;
+  border-radius: 5px;
+  font-family: 'icomoon';
+  padding: 2px;
+}
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 10px;
+  margin: 0 5px;
+}
+.controlContainer {
+  width: 58px;
+  max-width: 58px;
 }
