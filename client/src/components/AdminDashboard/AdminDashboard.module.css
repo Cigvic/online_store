@@ -114,3 +114,6 @@
 .sectionLink:hover {
   opacity: .8;
 }
+.sectionBtn {
+  margin-right: 20px;
+}

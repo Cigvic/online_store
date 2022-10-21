@@ -7,4 +7,7 @@ export default class brandService {
   static async createBrand(data) {
     return await $host.post("/api/brand", data);
   }
+  static async deleteBrand(data) {
+    return await $host.delete("/api/brand", {data});
+  }
 }

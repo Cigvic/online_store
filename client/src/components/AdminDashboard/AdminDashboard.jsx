@@ -9,17 +9,44 @@ import Button from "components/UI/Button/Button";
 
 const AdminDashboard = ({ userInfo, ...props }) => {
   const [state, setState] = useState(1);
-  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
+  const [brands, setBrands] = useState([]);
+  const [currentBrand, setCurrentBrand] = useState("");
 
   function handleLinkClick() {
     alert("Not supported yet");
   }
-  async function getBrands(e) {
+
+  async function createBrand(e) {
     e.preventDefault();
     await brandService
+      .createBrand({ name: name })
+      .then((res) => {
+        setName("Done");
+        setTimeout(() => setName(""), 1500);
+      })
+      .catch((e) => {
+        setName("Error");
+        setTimeout(() => setName(""), 1500);
+      });
+  }
+  async function getBrands() {
+    return await brandService
       .getAll()
-      .then((res) => console.log(res))
+      .then((res) => setBrands(res.data))
       .catch((e) => console.log(e));
+  }
+  async function deleteBrand(e) {
+    e.preventDefault();
+    await brandService
+      .deleteBrand({ name: currentBrand})
+      .then((res) => {
+        alert("Done");
+      })
+      .then(() => getBrands())
+      .catch((e) => {
+        alert("Error");
+      });
   }
   return (
     <Container className={`default centered flex ${classes.adminDashboard}`}>
@@ -98,44 +125,59 @@ const AdminDashboard = ({ userInfo, ...props }) => {
             <div className={classes.sectionGrid}>
               <div className={classes.sectionCell}>
                 <h3 className={classes.sectionH3}>Create new brand</h3>
-                <form onSubmit={getBrands}>
-                  <Label isRequired="1" htmlFor="brand-title">
+                <form onSubmit={createBrand}>
+                  <Label isRequired="1" htmlFor="brand-name">
                     Brand
                   </Label>
                   <Input
+                    required
                     className="Input Input__light-theme"
                     type="text"
-                    placeholder="Brand Title"
-                    id="brand-title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Brand name"
+                    id="brand-name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <Button type="submit">Submit</Button>
                 </form>
               </div>
               <div className={classes.sectionCell}>
                 <h3 className={classes.sectionH3}>Edit brand</h3>
-                <p className={classes.sectionP}>
-                  You don't subscribe to our newsletter.
-                </p>
+                <form onSubmit={deleteBrand}>
+                  {brands.length ? (
+                    <select
+                      className={classes.sectionSelect}
+                      value={currentBrand}
+                      onChange={(e) => setCurrentBrand(e.target.value)}
+                    >
+                      {brands.map((item) => {
+                        return (
+                          <option key={item.id} value={item.name}>
+                            {item.id} : {item.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  ) : (
+                    "There`s no brands yet"
+                  )}
+                  <div style={{ display: "flex", 'marginTop': '40px' }}>
+                    <Button
+                      onClick={() => getBrands()}
+                      className={classes.sectionBtn}
+                    >
+                      Get all brands
+                    </Button>
+                    <Button type="submit">Delete</Button>
+                  </div>
+                </form>
               </div>
               <div>
-                <button className={classes.sectionLink} onClick={getBrands}>
-                  Get all brands
-                </button>
                 <button
                   className={classes.sectionLink}
                   onClick={handleLinkClick}
                 >
-                  Change password
-                </button>
-              </div>
-              <div>
-                <button
-                  className={classes.sectionLink}
-                  onClick={handleLinkClick}
-                >
-                  Edit
+                  Check availability
                 </button>
               </div>
             </div>
